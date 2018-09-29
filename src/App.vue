@@ -6,11 +6,20 @@
 </template>
 
 <script>
+  import {mapActions} from 'vuex'
   import FooterGuide from './components/FooterGuide/FooterGuide.vue'
 
   export default {
     components:{
       FooterGuide
+    },
+    mounted(){
+      //this.$store.dispatch('getAddress')    //用dispatch发送请求
+      this.getAddress()                       // 用mapActions方法请求
+      this.getUserInfo()
+    },
+    methods:{
+      ...mapActions(['getAddress','getUserInfo'])
     }
   }
 </script>
